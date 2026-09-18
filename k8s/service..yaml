@@ -1,18 +1,16 @@
-apiVersion:v1
-kind:Service
+apiVersion: v1
+kind: Service
 metadata:
-  name:argocd-angular-app
-  namespace:argocd-angular-app
+  name: argocd-angular-app
+  namespace: argocd-angular-app
   labels:
-    app:argocd-angular-app
-
+    app: argocd-angular-app
 spec:
-  type:loadBalancer
-
+  type: LoadBalancer
   selector:
-    app:argocd-angular-app
+    app: argocd-angular-app
   ports:
-    - protocol:TCP
-      name:http
-      port:80
-      targetPort:80
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 80
