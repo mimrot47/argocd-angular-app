@@ -1,4 +1,4 @@
-apiVersion:1
-kind:Namespace
+apiVersion: v1
+kind: Namespace
 metadata:
-  name:argocd-angular-app
+  name: argocd-angular-app
