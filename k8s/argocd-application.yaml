@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL:
-    targetRevision: main
+    repoURL: https://github.com/mimrot47/argocd-angular-app.git
+    targetRevision: master
     path: k8s
 
 
@@ -20,6 +20,6 @@ spec:
       prune: true
       selfHeal: true
 
-  syncOptions:
-    - CreateNamespace=true
+    syncOptions:
+      - CreateNamespace=true
 
