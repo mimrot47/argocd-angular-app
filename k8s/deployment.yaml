@@ -1,0 +1,43 @@
+apiVersion:app/v1
+kind:Deployment
+metadata:
+  name:argocd-angular-app
+  namespace:argocd-angular-app
+  labels:
+    app:argocd-angular-app
+spec:
+  replicas:2
+
+  selector:
+    matchLabels:
+      app:argocd-angular-app
+  template:
+    metadata:
+      laebels:
+        app:argocd-angular-app
+
+
+    spec:
+      containers:
+      - name:argocd-angular-app
+        image:nginx:latest
+        ports:
+        - containerPort:80
+        resources:
+          requestes:
+            memory:"64Mi"
+            cpu:"250m"
+
+            limits:
+              memory:"128Mi"
+              cpu:"500m"
+        readinessProebe:
+          httpGet:
+          path:/index.html
+          port:80
+        livenessProbe:
+          httpGet:
+            path:/index.html
+            port:80
+          initialDelaySeconds:30
+          periodSeconds:10

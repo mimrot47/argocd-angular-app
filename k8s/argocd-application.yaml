@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-angular-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL:
+    targetRevision: main
+    path: k8s
+
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd-angular-app
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+  syncOptions:
+    - CreateNamespace=true
+
